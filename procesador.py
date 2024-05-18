@@ -74,9 +74,7 @@ class Procesador:
         # ADD target, source
         elif op_code == "0101":
             target = bin_a_dec(self.ir_reg[4:16]) 
-            print("Soy target: " + str(target)) 
             registro1 = dec_a_bin_16b(target)
-            print("hola soy esto " + str(registro1))
             registro2 = self.ir_reg[16:]
             cont_r1 = self.get_reg(registro1)
             cont_r2 = self.get_reg(registro2)
@@ -135,14 +133,11 @@ class Procesador:
         # JMP target
         elif op_code == "1011":
             target = bin_a_dec(self.ir_reg[4:20])
-            print("target : " + str(target))
             direccion_memoria = dec_a_bin_16b(target)
-            print("pasamos a pc: " + str(direccion_memoria))
             self.set_pc(direccion_memoria)
 
         # JMPC target, source1, source2
         elif op_code == "1100":
-            print("setIR; "+ str(self.ir_reg[4:16]))
             target = bin_a_dec(self.ir_reg[4:16])
             direccion_memoria = dec_a_bin_16b(target)
             source1 = bin_a_dec(self.ir_reg[16:22])
