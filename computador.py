@@ -10,9 +10,12 @@ class Computador:
     def ini_comp(self):
 
         contador_instruccion = 0
-
+        inicio = time.time()
         while True:
-                
+                tiempo_transcurrido = time.time() - inicio
+                if tiempo_transcurrido > 60:
+                    print("Han pasado más de 60 segundos. Saliendo del bucle.")
+                    sys.exit(0)
                 print("####################################")
                 print(f"# Instruccion {contador_instruccion}")
                 self.procesador.most_reg_proc()
