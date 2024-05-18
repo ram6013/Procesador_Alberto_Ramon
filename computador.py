@@ -30,6 +30,7 @@ class Computador:
                 print(instruccion)
                 if instruccion[0:4] == "1111":
                     self.memoria.g_mem_fich("resultado.txt")
+                    print("Realizado con exito. Se ha creado un archivo 'resultado.txt' con los resultados. \nFinalizacion del proceso.")
                     sys.exit(0)
                 self.procesador.ejec_inst(self.memoria)
                 if instruccion[0:4] != "1011" and instruccion [0:4] != "1100":
